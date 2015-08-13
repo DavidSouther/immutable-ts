@@ -1,0 +1,40 @@
+{
+	"version": "0.1.0",
+  "command": "npm",
+  "isShellCommand": "true",
+  "tasks": [
+    {
+      "taskName": "Mocha",
+      "args": "test"
+    }
+  ]
+	// List of configurations. Add new configurations or edit existing ones.
+	// ONLY "node" and "mono" are supported, change "type" to switch.
+	// "configurations": [
+	// 	{
+	// 		// Name of configuration; appears in the launch configuration drop down menu.
+	// 		"name": "Mocha",
+	// 		// Type of configuration. Possible values: "node", "mono".
+	// 		"type": "node",
+	// 		// Workspace relative or absolute path to the program.
+	// 		"program": "npm",
+	// 		// Automatically stop program after launch.
+	// 		"stopOnEntry": false,
+	// 		// Command line arguments passed to the program.
+	// 		"args": ["test"],
+	// 		// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
+	// 		"cwd": ".",
+	// 		// Optional arguments passed to the runtime executable.
+	// 		"runtimeArgs": ["--nolazy"]
+	// 	},
+	// 	{
+	// 		"name": "Attach",
+	// 		"type": "node",
+	// 		// TCP/IP address. Default is "localhost".
+	// 		"address": "localhost",
+	// 		// Port to attach to.
+	// 		"port": 5858,
+	// 		"sourceMaps": true
+	// 	}
+	// ]
+}

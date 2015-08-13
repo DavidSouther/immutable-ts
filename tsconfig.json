@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "outDir": "dist/",
+        "out": "dist/immutable.js",
+        "sourceMap": true,
+        "target": "ES5"
+    },
+    "files": [
+      "src/immutable.ts",
+      "src/Stack/StackTest.ts",
+      "src/Queue/QueueTest.ts"
+    ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "immutable-ts",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm build && ./node_modules/.bin/mocha dist/**/*Test.js",
+    "test_debug": "npm build && node --debug-brk ./node_modules/.bin/mocha dist/**/*Test.js",
+    "build": "./node_modules/.bin/tsc"
+  },
+  "author": "David Souther <davidsouther@gmail.com> (https://davidsouther.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "typescript": "^1.5.3"
+  }
+}
