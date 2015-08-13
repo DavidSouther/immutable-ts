@@ -20,16 +20,16 @@ export class Queue<T> implements IQueue<T> {
 	get isEmpty():boolean { return false; }
 	peek():T { return this._forwards.peek(); }
 	enqueue(t: T): IQueue<T> {
-		return new Queue<T>(this._forwards, this._backwards.push(t));
+		return new Queue<T>(this._forwards.push(t), this._backwards);
 	}
 	dequeue(): IQueue<T> {
 		let f = this._forwards.pop();
 		if (!f.isEmpty) {
-			return new Queue<T>(f, this._backwards);
+			return new Queue(f, this._backwards);
 		} else if (this._backwards.isEmpty) {
 			return Queue.Empty;
 		} else {
-			return new Queue<T>(Stack.reverse(this._backwards), Stack.Empty);
+			return new Queue(Stack.reverse(this._backwards), Stack.Empty);
 		}
 	}
 

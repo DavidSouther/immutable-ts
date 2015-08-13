@@ -5,7 +5,7 @@ export {
 
 export {
   IQueue,
-  // Queue
+  Queue
 } from './queue/Queue';
 
 export {

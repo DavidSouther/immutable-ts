@@ -24,7 +24,7 @@ describe('Stack', function(){
     let g2 = new Giraffe(), sg2 = sg1.push(g2);
     expect(sg2.peek()).to.equal(g2);
     expect(sg2.pop()).to.equal(sg1);
-    expect(sg2).to.equal(sg2);
+
     // let sg4 = sg2.push(new Tiger());
     let sm2:IStack<Mammal> = sg2; // Covariant!
     let t1 = new Tiger(), sm3 = sm2.push(t1);

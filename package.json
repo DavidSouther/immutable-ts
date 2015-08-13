@@ -5,14 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "npm build && ./node_modules/.bin/mocha dist/**/*Test.js",
-    "test_debug": "npm build && node --debug-brk ./node_modules/.bin/mocha dist/**/*Test.js",
-    "build": "./node_modules/.bin/tsc"
+    "watch-test": "./node_modules/.bin/mocha -R min dist/**/*Test.js -w",
+    "watch-debug-test": "npm run watch & node --debug ./node_modules/.bin/mocha -R min dist/**/*Test.js -w",
+    "build-tsc": "./node_modules/.bin/tsc",
+    "watch-tsc": "./node_modules/.bin/tsc -w",
+    "build-babel": "./node_modules/.bin/babel build --out-dir dist -s",
+    "watch-babel": "./node_modules/.bin/babel build --out-dir dist -s -w",
+    "build": "npm run build-tsc && npm run build-babel",
+    "watch": "npm run watch-tsc & npm run watch-babel"
   },
   "author": "David Souther <davidsouther@gmail.com> (https://davidsouther.com/)",
   "license": "ISC",
   "dependencies": {
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
-    "typescript": "^1.5.3"
+    "typescript": "^1.5.3",
+    "webpack": "^1.11.0"
   }
 }
