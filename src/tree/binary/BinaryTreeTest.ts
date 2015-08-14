@@ -27,33 +27,47 @@ describe('Binary Tree', function(){
     expect(enumerator.current).to.eq(2);
   });
 
-  describe('three-trees', function() {
-    ien('CBA', BT('A', BT('B', BT('C'))));
-    ien('BCA', BT('A', BT('B', E, BT('C'))));
-    ien('BAC', BT('A', BT('B'), BT('C')));
-    ien('ACB', BT('A', E, BT('B', BT('C'))));
-    ien('ABC', BT('A', E, BT('B', E, BT('C'))));
-  });
+  describe('can enumerate a', function() {
+    describe('null-tree', function() {
+      ien('', BinaryTree.Empty);
+    });
 
-  it('can enumerate a four-tree', function() {
-    ien('DCBA', BT('A', BT('B', BT('C', BT('D')))));
-    ien('CDBA', BT('A', BT('B', BT('C', E, BT('D')))));
-    ien('CBDA', BT('A', BT('B', BT('C'), BT('D'))));
-    ien('CBAD', BT('A', BT('B', BT('C')), BT('D')));
-    ien('BDCA', BT('A', BT('B', E, BT('C', BT('D')))));
-    ien('BCDA', BT('A', BT('B', E, BT('C', E, BT('D')))));
-    ien('BCAD', BT('A', BT('B', E, BT('C')), BT('D')));
-    ien('BADC', BT('A', BT('B'), BT('C', BT('D'))));
-    ien('BACD', BT('A', BT('B'), BT('C', E, BT('D'))));
-    ien('ADCB', BT('A', E, BT('B', BT('C', BT('D')))));
-    ien('ACDB', BT('A', E, BT('B', BT('C', E, BT('D')))));
-    ien('ACBD', BT('A', E, BT('B', BT('C'), BT('D'))));
-    ien('ABDC', BT('A', E, BT('B', E, BT('C', BT('D')))));
-    ien('ABCD', BT('A', E, BT('B', E, BT('C', E, BT('D')))));
+    describe('one-tree', function() {
+      ien('A', BT('A'));
+    });
+
+    describe.skip('two-tree', function() {
+      ien('BA', BT('A', BT('B')));
+      ien('BA', BT('A', E, BT('B')));
+    });
+
+    describe.skip('three-tree', function() {
+      ien('CBA', BT('A', BT('B', BT('C'))));
+      ien('BCA', BT('A', BT('B', E, BT('C'))));
+      ien('BAC', BT('A', BT('B'), BT('C')));
+      ien('ACB', BT('A', E, BT('B', BT('C'))));
+      ien('ABC', BT('A', E, BT('B', E, BT('C'))));
+    });
+
+    describe.skip('four-tree', function() {
+      ien('DCBA', BT('A', BT('B', BT('C', BT('D')))));
+      ien('CDBA', BT('A', BT('B', BT('C', E, BT('D')))));
+      ien('CBDA', BT('A', BT('B', BT('C'), BT('D'))));
+      ien('CBAD', BT('A', BT('B', BT('C')), BT('D')));
+      ien('BDCA', BT('A', BT('B', E, BT('C', BT('D')))));
+      ien('BCDA', BT('A', BT('B', E, BT('C', E, BT('D')))));
+      ien('BCAD', BT('A', BT('B', E, BT('C')), BT('D')));
+      ien('BADC', BT('A', BT('B'), BT('C', BT('D'))));
+      ien('BACD', BT('A', BT('B'), BT('C', E, BT('D'))));
+      ien('ADCB', BT('A', E, BT('B', BT('C', BT('D')))));
+      ien('ACDB', BT('A', E, BT('B', BT('C', E, BT('D')))));
+      ien('ACBD', BT('A', E, BT('B', BT('C'), BT('D'))));
+      ien('ABDC', BT('A', E, BT('B', E, BT('C', BT('D')))));
+      ien('ABCD', BT('A', E, BT('B', E, BT('C', E, BT('D')))));
+    });
   });
 
   function ien<T>(enumeration: string, tree: IBinaryTree<T>): void {
-    console.log(enumeration, tree);
     it(enumeration, function(){
       enumerate(enumeration, tree);
     });
