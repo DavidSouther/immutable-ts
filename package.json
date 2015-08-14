@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm build && ./node_modules/.bin/mocha dist/**/*Test.js",
+    "test": "npm run build && ./node_modules/.bin/mocha dist/**/*Test.js",
     "watch-test": "./node_modules/.bin/mocha -R min dist/**/*Test.js -w",
     "watch-debug-test": "npm run watch & node --debug ./node_modules/.bin/mocha -R min dist/**/*Test.js -w",
     "build-tsc": "./node_modules/.bin/tsc",

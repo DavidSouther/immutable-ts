@@ -9,7 +9,8 @@
     },
     "files": [
       "src/immutable.ts",
-      "src/Stack/StackTest.ts",
-      "src/Queue/QueueTest.ts"
+      "src/stack/StackTest.ts",
+      "src/queue/QueueTest.ts",
+      "src/tree/binary/BinaryTreeTest.ts"
     ]
 }
