@@ -1,6 +1,5 @@
 import {
-  IEnumerator,
-  IEnumerable
+  IEnumerator
 } from '../../collections';
 
 import {IStack, Stack} from '../../stack/Stack';
@@ -17,7 +16,7 @@ export class BinaryTree<T> implements IBinaryTree<T> {
     private _value: T,
     private _left: IBinaryTree<T> = BinaryTree.Empty,
     private _right: IBinaryTree<T> = BinaryTree.Empty
-  ){}
+  ) {}
 
   get isEmpty() { return false; }
   get value() { return this._value; }
@@ -26,10 +25,10 @@ export class BinaryTree<T> implements IBinaryTree<T> {
 
   static Empty: IBinaryTree<any> = {
     get isEmpty() { return true; },
-    get value():any { throw new Error("Empty binary tree."); },
-    get left():IBinaryTree<any> { throw new Error("Empty binary tree."); },
-    get right():IBinaryTree<any> { throw new Error("Empty binary tree."); }
-  }
+    get value(): any { throw new Error('Empty binary tree.'); },
+    get left(): IBinaryTree<any> { throw new Error('Empty binary tree.'); },
+    get right(): IBinaryTree<any> { throw new Error('Empty binary tree.'); }
+  };
 
   static InOrder<T>(tree: IBinaryTree<T>): IEnumerator<T> {
     return new InOrderBinaryTreeEnumerator(tree);
@@ -39,12 +38,11 @@ export class BinaryTree<T> implements IBinaryTree<T> {
 class InOrderBinaryTreeEnumerator<T> implements IEnumerator<T> {
   private _stack: IStack<IBinaryTree<T>> = Stack.Empty;
   private _value: T;
-  constructor(private _current: IBinaryTree<T>){ this.next; }
-  get current() { return this._value; }
-  get next() {
+  constructor(private _current: IBinaryTree<T>) { this._pump(); }
+  private _pump() {
     if (this.hasNext) {
       while (!this._current.isEmpty) {
-        // Traverse left while there is a left
+        // traverse left while there is a left
         this._stack = this._stack.push(this._current);
         this._current = this._current.left;
       }
@@ -53,6 +51,10 @@ class InOrderBinaryTreeEnumerator<T> implements IEnumerator<T> {
       this._value = this._current.value;
       this._current = this._current.right;
     }
+  }
+  get current() { return this._value; }
+  get next() {
+    this._pump();
     return this;
   }
   get hasNext() {

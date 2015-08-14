@@ -5,7 +5,7 @@ import { expect } from 'chai';
 
 import { IPrintable } from '../collections';
 
-import { IQueue, Queue } from './Queue'
+import { IQueue, Queue } from './Queue';
 
 class PS implements IPrintable {
   constructor(private _s: string) { }
@@ -20,6 +20,6 @@ describe('Queue', function(){
     let ps3 = new PS('c'), q3 = q2.enqueue(ps3);
 
     expect(q3.peek()).to.equal(ps3);
-    // expect(q3.dequeue()).to.equal(q2); // This condition is not, in fact, true.
+    expect(q3.dequeue()).to.equal(q2); // this condition is not, in fact, true.
   });
 });
