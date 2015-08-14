@@ -3,9 +3,10 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "outDir": "build/",
+        "outDir": "dist/",
+        "module": "commonjs",
         "sourceMap": true,
-        "target": "ES6"
+        "target": "ES5"
     },
     "files": [
       "src/immutable.ts",

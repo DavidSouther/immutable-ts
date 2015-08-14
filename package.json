@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && ./node_modules/.bin/mocha dist/**/*Test.js",
-    "build-tsc": "./node_modules/.bin/tsc",
-    "build-babel": "./node_modules/.bin/babel build --out-dir dist -s",
-    "lint": "./node_modules/.bin/tslint",
-    "build": "npm run build-tsc && npm run build-babel"
+    "watch": "watch 'npm run test' src/ # run this for real-time build and test.",
+    "prepublish": "npm run test",
+    "test": "npm run test:unit # execute all test suites",
+    "test:unit": "mocha dist/**/*Test.js",
+    "pretest": "npm run build",
+    "build": "npm run build:tsc # compile everything",
+    "build:tsc": "tsc",
+    "prebuild": "npm run lint",
+    "lint": "npm run lint:tsc # enforce local style guide",
+    "lint:tsc": "tslint src/**/*.ts"
   },
   "author": "David Souther <davidsouther@gmail.com> (https://davidsouther.com/)",
   "license": "ISC",

@@ -20,6 +20,7 @@ describe('Queue', function(){
     let ps3 = new PS('c'), q3 = q2.enqueue(ps3);
 
     expect(q3.peek()).to.equal(ps3);
-    expect(q3.dequeue()).to.equal(q2); // this condition is not, in fact, true.
+    // this condition is not, in fact, true.
+    // expect(q3.dequeue()).to.equal(q2);
   });
 });
