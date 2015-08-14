@@ -5,15 +5,21 @@
   "main": "index.js",
   "scripts": {
     "watch": "watch 'npm run test' src/ # run this for real-time build and test.",
+
     "prepublish": "npm run test",
+
     "test": "npm run test:unit # execute all test suites",
     "test:unit": "mocha dist/**/*Test.js",
     "pretest": "npm run build",
+
     "build": "npm run build:tsc # compile everything",
     "build:tsc": "tsc",
     "prebuild": "npm run lint",
+
     "lint": "npm run lint:tsc # enforce local style guide",
-    "lint:tsc": "tslint src/**/*.ts"
+    "lint:tsc": "tslint src/**/*.ts",
+
+    "clean": "rm -rf dist/"
   },
   "author": "David Souther <davidsouther@gmail.com> (https://davidsouther.com/)",
   "license": "ISC",
