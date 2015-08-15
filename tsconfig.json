@@ -12,6 +12,7 @@
       "src/immutable.ts",
       "src/stack/StackTest.ts",
       "src/queue/QueueTest.ts",
-      "src/tree/binary/BinaryTreeTest.ts"
+      "src/tree/binary/BinaryTreeTest.ts",
+      "src/tree/binary/BinarySearchTreeTest.ts"
     ]
 }

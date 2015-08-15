@@ -10,10 +10,18 @@ export {
 
 export {
   IBinaryTree,
-  BinaryTree
+  BinaryTree,
 } from './tree/binary/BinaryTree'
 
 export {
+  IBinarySearchTree,
+  AVLTree
+} from './tree/binary/BinarySearchTree'
+
+export {
   IEnumerator,
-  IEnumerable
+  IEnumerable,
+  IComparable,
+  IMap,
+  IDictionary
 } from './collections';

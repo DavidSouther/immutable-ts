@@ -28,7 +28,7 @@
   },
   "author": "David Souther <davidsouther@gmail.com> (https://davidsouther.com/)",
   "license": "ISC",
-  "dev-dependencies": {
+  "devDependencies": {
     "chai": "^3.2.0",
     "mocha": "^2.2.5",
     "tslint": "^2.4.2",
