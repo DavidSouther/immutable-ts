@@ -37,32 +37,34 @@ export class BinaryTree<T> implements IBinaryTree<T> {
 
 class InOrderBinaryTreeEnumerator<T> implements IEnumerator<T> {
   private _stack: IStack<IBinaryTree<T>> = Stack.Empty;
-  private _value: T;
+  private _state: number = 0;
+
   constructor(private _current: IBinaryTree<T>) { this._pump(); }
-  private _pump() {
-    // if (this.hasNext) {
-    //   while (!this._current.isEmpty) {
-    //     // traverse left while there is a left
-    //     this._stack = this._stack.push(this._current);
-    //     this._current = this._current.left;
-    //   }
-    //   this._current = this._stack.peek();
-    //   this._stack = this._stack.pop();
-    //   this._value = this._current.value;
-    //   this._current = this._current.right;
-    // }
-    if (this.hasNext) {
-      this._value = this._current.value;
-      this._stack = this._stack.push(this._current);
-      this._current = this._current.left;
-    }
-  }
-  get current() { return this._value; }
+
+  get current() { return this._current.value; }
   get next() {
     this._pump();
     return this;
   }
   get hasNext() {
-    return !this._current.isEmpty || !this._stack.isEmpty;
+    return !(this._current.isEmpty && this._stack.isEmpty);
+  }
+
+  private _pump() {
+    if (this._state === 1) {
+      this._current = this._current.right;
+      this._state = 0;
+    }
+    while (this.hasNext) {
+      if (!this._current.isEmpty) {
+        this._stack = this._stack.push(this._current);
+        this._current = this._current.left;
+      } else {
+        this._current = this._stack.peek();
+        this._stack = this._stack.pop();
+        this._state = 1;
+        return; // yield
+      }
+    }
   }
 }

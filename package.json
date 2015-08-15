@@ -14,6 +14,7 @@
 
     "test": "npm run test:unit # execute all test suites",
     "test:unit": "mocha dist/{stack,queue,tree/binary}/*Test.js",
+    "test:unit:debug": "mocha dist/{stack,queue,tree/binary}/*Test.js --debug-brk --nolazy",
     "pretest": "npm run build",
 
     "build": "npm run build:tsc # compile everything",

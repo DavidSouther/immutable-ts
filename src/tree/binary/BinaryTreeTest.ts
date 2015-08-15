@@ -23,8 +23,10 @@ describe('Binary Tree', function(){
 
   it('can enumerate a single node', function() {
     let enumerator = BinaryTree.InOrder(left);
-    expect(enumerator.hasNext).to.be.false;
     expect(enumerator.current).to.eq(2);
+    expect(enumerator.hasNext).to.be.true;
+    enumerator = enumerator.next;
+    expect(enumerator.hasNext).to.be.false;
   });
 
   describe('can enumerate a', function() {
@@ -36,12 +38,12 @@ describe('Binary Tree', function(){
       ien('A', BT('A'));
     });
 
-    describe.skip('two-tree', function() {
+    describe('two-tree', function() {
       ien('BA', BT('A', BT('B')));
-      ien('BA', BT('A', E, BT('B')));
+      ien('AB', BT('A', E, BT('B')));
     });
 
-    describe.skip('three-tree', function() {
+    describe('three-tree', function() {
       ien('CBA', BT('A', BT('B', BT('C'))));
       ien('BCA', BT('A', BT('B', E, BT('C'))));
       ien('BAC', BT('A', BT('B'), BT('C')));
@@ -49,7 +51,7 @@ describe('Binary Tree', function(){
       ien('ABC', BT('A', E, BT('B', E, BT('C'))));
     });
 
-    describe.skip('four-tree', function() {
+    describe('four-tree', function() {
       ien('DCBA', BT('A', BT('B', BT('C', BT('D')))));
       ien('CDBA', BT('A', BT('B', BT('C', E, BT('D')))));
       ien('CBDA', BT('A', BT('B', BT('C'), BT('D'))));
