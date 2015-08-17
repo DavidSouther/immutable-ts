@@ -50,12 +50,3 @@ export interface IDictionary<V> {
   add(key: string, value: V): IDictionary<V>;
   remove(key: string, value: V): IDictionary<V>;
 }
-
-class DictionaryKey implements IComparable<string> {
-  constructor(private _string: string) { }
-  get value() { return this._string; }
-  compareTo(other: DictionaryKey): number {
-    return other.value.localeCompare(this.value);
-  }
-}
-

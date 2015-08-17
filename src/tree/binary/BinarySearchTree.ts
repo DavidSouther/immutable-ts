@@ -45,8 +45,8 @@ export class AVLTree<K extends IComparable<any>, V>
       return new AVLTree(k, v);
     },
     remove<K>(k: K): any { throw new Error('Empty Binary Search Tree'); },
-    search<K>(k: K): any { return this; },
-    contains<K>(k: K): any { return false; },
+    search<K>(k: K): IBinarySearchTree<any, any> { return this; },
+    contains<K>(k: K): boolean { return false; },
     lookup<K>(k: K): any { throw new Error('Empty Binary Search Tree'); },
   };
 
@@ -86,8 +86,12 @@ export class AVLTree<K extends IComparable<any>, V>
     });
   }
 
+  public compareTo(key: K): number {
+    return this.key.compareTo(key);
+  }
+
   add(key: K, value: V): IBinarySearchTree<K, V> {
-    return AVLTree.MakeBalanced(key.compareTo(this._key) > 0 ?
+    return AVLTree.MakeBalanced(this.compareTo(key) > 0 ?
       new AVLTree(this.key, this.value, this.left, this.right.add(key, value))
     :
       new AVLTree(this.key, this.value, this.left.add(key, value), this.right)
@@ -95,7 +99,7 @@ export class AVLTree<K extends IComparable<any>, V>
   }
 
   remove(key: K): IBinarySearchTree<K, V> {
-    const comparison = key.compareTo(this.key);
+    const comparison = this.compareTo(key);
     let result: IBinarySearchTree<K, V> = this;
     if (comparison === 0) {
 
@@ -147,7 +151,7 @@ export class AVLTree<K extends IComparable<any>, V>
     return this.search(k).value;
   }
   search(k: K): IBinarySearchTree<K, V> {
-    const comparison = k.compareTo(this.key);
+    const comparison = this.compareTo(k);
     return (comparison < 0) ? this.left.search(k) :
       (comparison > 0) ? this.right.search(k) :
       this;
