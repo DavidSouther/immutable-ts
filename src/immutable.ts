@@ -23,5 +23,7 @@ export {
   IEnumerable,
   IComparable,
   IMap,
-  IDictionary
+  IDictionary,
+  IKeyValuePair,
+  KeyValuePair
 } from './collections';
